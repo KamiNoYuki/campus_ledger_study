@@ -1,0 +1,10 @@
+<view class="page form-page">
+  <view class="type-switch"><view class="switch-item {{typeIndex === 0 ? 'expense-on' : ''}}" bindtap="typeChange" data-index="0">消费</view><view class="switch-item {{typeIndex === 1 ? 'income-on' : ''}}" bindtap="typeChange" data-index="1">收入</view></view>
+  <view class="card form-card">
+    <view class="field"><text class="field-label">金额</text><view class="amount-wrap"><text>¥</text><input type="digit" placeholder="0.00" value="{{form.amount}}" data-key="amount" bindinput="input" focus="{{!isEdit}}" /></view></view>
+    <view class="field"><text class="field-label">分类</text><picker range="{{categories}}" range-key="name" value="{{categoryIndex}}" bindchange="categoryChange"><view class="picker-value">{{categories[categoryIndex].icon}} {{categories[categoryIndex].name}} <text>›</text></view></picker></view>
+    <view class="field"><text class="field-label">日期</text><picker mode="date" value="{{form.date}}" bindchange="dateChange"><view class="picker-value">{{form.date}} <text>›</text></view></picker></view>
+    <view class="field note-field"><text class="field-label">备注</text><textarea maxlength="60" placeholder="例如：图书馆咖啡" value="{{form.note}}" data-key="note" bindinput="input" /></view>
+  </view>
+  <button class="btn-primary save" bindtap="submit">{{isEdit ? '保存修改' : '确认记录'}}</button>
+</view>

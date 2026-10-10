@@ -1,0 +1,10 @@
+<view class="page">
+  <view class="intro"><text class="intro-icon">🗂</text><view><text class="intro-title">你的数据，始终由你掌控</text><text>所有记录默认保存在当前微信设备；可随时备份和迁移。</text></view></view>
+  <view class="card storage"><view><text class="storage-num">{{financeCount}}</text><text class="muted">收支记录</text></view><view><text class="storage-num">{{studyCount}}</text><text class="muted">学习打卡</text></view><view><text class="storage-num">{{userCount}}</text><text class="muted">用户视角</text></view></view>
+  <view class="section-title">导出数据</view>
+  <view class="card actions"><view class="action" data-type="json" bindtap="exportData"><view class="action-icon json">{ }</view><view><text>完整 JSON 备份</text><text class="muted">保留全部数据结构，可完整恢复</text></view><text class="arrow">›</text></view><view class="action" data-type="excel" bindtap="exportData"><view class="action-icon excel">X</view><view><text>Excel 表格</text><text class="muted">生成 .xls，可用 Excel 直接打开</text></view><text class="arrow">›</text></view><view class="action" data-type="csv" bindtap="exportData"><view class="action-icon csv">CSV</view><view><text>CSV 通用表格</text><text class="muted">适用于表格软件和数据处理</text></view><text class="arrow">›</text></view></view>
+  <view class="section-title">导入与维护</view>
+  <view class="card actions"><view class="action" bindtap="importData"><view class="action-icon import">↑</view><view><text>从文件导入</text><text class="muted">支持本应用 JSON、CSV、Excel(.xls)</text></view><text class="arrow">›</text></view><view class="action" bindtap="resetData"><view class="action-icon reset">↺</view><view><text class="danger">恢复演示数据</text><text class="muted">覆盖本机数据，便于重新体验</text></view><text class="arrow">›</text></view></view>
+  <view class="error" wx:if="{{lastError}}">导入提示：{{lastError}}</view>
+  <view class="notice">导入 CSV / Excel 时，请使用本页导出的列格式。导入后可选择合并或覆盖。</view>
+</view>

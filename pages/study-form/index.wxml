@@ -1,0 +1,11 @@
+<view class="page">
+  <view class="tip">每一次专注，都会沉淀为你的成长。</view>
+  <view class="card form-card">
+    <view class="field"><text class="field-label">学习时长</text><view class="minutes-wrap"><input type="number" placeholder="0" value="{{form.minutes}}" data-key="minutes" bindinput="input" focus="{{!isEdit}}" /><text>分钟</text></view></view>
+    <view class="field"><text class="field-label">学习科目</text><picker range="{{subjects}}" range-key="name" value="{{subjectIndex}}" bindchange="subjectChange"><view class="picker-value">{{subjects[subjectIndex].icon}} {{subjects[subjectIndex].name}} <text>›</text></view></picker></view>
+    <view class="field"><text class="field-label">打卡日期</text><picker mode="date" value="{{form.date}}" bindchange="dateChange"><view class="picker-value">{{form.date}} <text>›</text></view></picker></view>
+    <view class="field"><text class="field-label">学习状态</text><picker range="{{moods}}" value="{{moodIndex}}" bindchange="moodChange"><view class="picker-value">{{moods[moodIndex]}} <text>›</text></view></picker></view>
+    <view class="field note-field"><text class="field-label">学习内容</text><textarea maxlength="60" placeholder="例如：完成第 3 章练习题" value="{{form.note}}" data-key="note" bindinput="input" /></view>
+  </view>
+  <button class="btn-primary save" bindtap="submit">{{isEdit ? '保存修改' : '完成打卡'}}</button>
+</view>

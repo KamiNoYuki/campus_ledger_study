@@ -1,0 +1,4 @@
+{
+  "desc": "校园账学簿",
+  "rules": [{ "action": "allow", "page": "*" }]
+}

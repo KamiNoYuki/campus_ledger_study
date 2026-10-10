@@ -1,0 +1,15 @@
+<view class="page">
+  <view class="summary-card">
+    <view class="month-row"><picker mode="date" fields="month" value="{{month}}" bindchange="chooseMonth"><view>{{month}} <text>⌄</text></view></picker><text class="manage" bindtap="goCategory">分类管理</text></view>
+    <view class="balance-label">本月结余</view><view class="balance">¥ {{summary.balanceText}}</view>
+    <view class="summary-line"><view><text>收入</text><text class="income-text">+¥{{summary.incomeText}}</text></view><view><text>消费</text><text class="expense-text">-¥{{summary.expenseText}}</text></view><view><text>共 {{summary.count}} 笔</text></view></view>
+  </view>
+  <view class="tabs"><view wx:for="{{typeTabs}}" wx:key="id" class="tab {{type === item.id ? 'active' : ''}}" data-type="{{item.id}}" bindtap="chooseType">{{item.name}}</view></view>
+  <view class="record-list" wx:if="{{records.length}}">
+    <view class="record card" wx:for="{{records}}" wx:key="id" bindtap="edit" data-id="{{item.id}}">
+      <view class="record-icon">{{item.category.icon}}</view><view class="record-info"><text>{{item.category.name}}</text><text class="muted">{{item.note || '未填写备注'}} · {{item.date}}</text></view><view class="record-money"><text class="{{item.type === 'income' ? 'income-text' : 'expense-text'}}">{{item.type === 'income' ? '+' : '-'}}¥{{item.amountText}}</text><text class="delete" catchtap="remove" data-id="{{item.id}}">删除</text></view>
+    </view>
+  </view>
+  <view class="empty" wx:else>这个月暂无{{type === 'income' ? '收入' : type === 'expense' ? '消费' : '收支'}}记录</view>
+  <view class="fab" bindtap="add">＋</view>
+</view>

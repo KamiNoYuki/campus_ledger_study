@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "pages/dashboard/index",
+    "pages/finance/index",
+    "pages/study/index",
+    "pages/stats/index",
+    "pages/profile/index",
+    "pages/finance-form/index",
+    "pages/study-form/index",
+    "pages/categories/index",
+    "pages/data-center/index"
+  ],
+  "window": {
+    "backgroundColor": "#F5F7FB",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "校园账学簿",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#8B95A8",
+    "selectedColor": "#4263EB",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      { "pagePath": "pages/dashboard/index", "text": "首页" },
+      { "pagePath": "pages/finance/index", "text": "记账" },
+      { "pagePath": "pages/study/index", "text": "学习" },
+      { "pagePath": "pages/stats/index", "text": "统计" },
+      { "pagePath": "pages/profile/index", "text": "我的" }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

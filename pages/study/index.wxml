@@ -1,0 +1,15 @@
+<view class="page">
+  <view class="study-hero">
+    <view class="study-hero-top"><picker mode="date" fields="month" value="{{month}}" bindchange="chooseMonth"><view>{{month}} ⌄</view></picker><text bindtap="goCategory">科目管理</text></view>
+    <view class="study-total"><text class="study-total-number">{{summary.minutesText}}</text><text>本月学习时长</text></view>
+    <view class="study-hero-bottom"><view><text class="hero-strong">{{streak}} 天</text><text>连续打卡</text></view><view><text class="hero-strong">{{summary.count}} 次</text><text>学习记录</text></view><view><text class="hero-strong">{{summary.rate}}%</text><text>目标进度</text></view></view>
+  </view>
+  <view class="section-head"><text class="section-title">科目进度</text><text class="muted">可在科目管理设置月目标</text></view>
+  <view class="card subject-list">
+    <view class="subject" wx:for="{{subjects}}" wx:key="id"><view class="subject-icon" style="background: {{item.color}}22; color: {{item.color}}">{{item.icon}}</view><view class="subject-body"><view class="subject-line"><text>{{item.name}}</text><text class="muted">{{item.minutesText}} / {{item.targetMinutes}}分钟</text></view><view class="track"><view class="fill" style="width: {{item.rate}}%;background:{{item.color}}"></view></view></view><text class="subject-rate" style="color: {{item.color}}">{{item.rate}}%</text></view>
+  </view>
+  <view class="section-head"><text class="section-title">打卡记录</text></view>
+  <view wx:if="{{records.length}}"><view class="study-record card" wx:for="{{records}}" wx:key="id" bindtap="edit" data-id="{{item.id}}"><view class="record-icon">{{item.subject.icon}}</view><view class="study-info"><text>{{item.subject.name}}</text><text class="muted">{{item.note || '学习打卡'}} · {{item.date}} · {{item.mood}}</text></view><view class="right"><text class="primary">{{item.minutesText}}</text><text class="delete" catchtap="remove" data-id="{{item.id}}">删除</text></view></view></view>
+  <view class="empty" wx:else>本月还没有学习打卡</view>
+  <view class="fab" bindtap="add">✓</view>
+</view>
